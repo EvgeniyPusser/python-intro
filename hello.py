@@ -1,22 +1,12 @@
-# x: int = 1
-# x=2
-# print(x)
-# y = "hello"
+import bisect
+
 def bSearchSortedList(arr, target):
-    # найдём левую границу: первый индекс, где arr[idx] >= target
-    left, right = 0, len(arr)
-    while left < right:
-        mid = (left + right) // 2
-        if arr[mid] >= target:
-            right = mid
-        else:
-            left = mid + 1
+    idx = bisect.bisect_left(arr, target)
+    if idx < len(arr) and arr[idx] == target:
+        return idx
+    else:
+        return -(idx + 1)
 
-    
-    return left if left < len(arr) and arr[left] == target else -(left + 1)
-
-      
-      # не найдено → код вставки
 arr = [1, 1, 1, 3, 4, 5, 11]
 
 print(bSearchSortedList(arr, 3))
