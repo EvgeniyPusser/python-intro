@@ -12,11 +12,9 @@ def bSearchSortedList(arr, target):
         else:
             left = mid + 1
 
-    idx = left  # сюда можно вставить target и сохранить порядок
-    if idx < len(arr) and arr[idx] == target:
-        return idx              # это и есть первое вхождение
-    else:
-        return -(idx + 1) 
+    
+    return left if left < len(arr) and arr[left] == target else -(left + 1)
+
       
       # не найдено → код вставки
 arr = [1, 1, 1, 3, 4, 5, 11]
