@@ -1,16 +1,20 @@
-import bisect
+def bSearch(arr, target):
+    left, right = 0, len(arr) - 1
+    while left <= right:
+        mid = (left + right) // 2
+        if arr[mid] == target:
+            return mid
+        elif arr[mid] < target:
+            left = mid + 1
+        else:
+            right = mid - 1
+    return -1       
 
-def bSearchSortedList(arr, target):
-    idx = bisect.bisect_left(arr, target)
-    if idx < len(arr) and arr[idx] == target:
-        return idx
-    else:
-        return -(idx + 1)
+if __name__ == "__main__":
+    arr = [1, 2, 2, 2, 5, 6, 7, 8, 9]
+    target = 2
+    result = bSearch(arr, target)
+    print(f"Element found at index: {result}" if result != -1 else "Element not found")     
 
-arr = [1, 1, 1, 3, 4, 5, 11]
 
-print(bSearchSortedList(arr, 3))
-print(bSearchSortedList(arr, 6))
-print(bSearchSortedList(arr, 1))
-print(bSearchSortedList(arr, 0))
-print(bSearchSortedList(arr, 2))
+

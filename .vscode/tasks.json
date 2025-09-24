@@ -1,0 +1,14 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "mypy launch",
+			"type": "shell",
+			"command": "mypy",
+			"args": [
+				"${workspaceFolder}/hello.py"
+			],
+			"problemMatcher": "$python"
+		}
+	]
+}
