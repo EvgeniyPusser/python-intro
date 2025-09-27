@@ -1,11 +1,15 @@
 def find_sums(arr, target):
     seen = set()
+    result = False
+    
     for num in arr:
         complement = target - num
         if complement in seen:
-            return True
+            result = True
+            break
         seen.add(num)
-    return False
+    
+    return result
   
 # Example usage:
 arr = [2, 7, 11, 15]
