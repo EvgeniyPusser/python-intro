@@ -20,15 +20,17 @@ print(result)  # Output: (0, 1) because arr[0] + arr[1] = 2 + 7 = 9
 
 def maxNumberWithOppositeSigns(arr):
     num_set = set()
-    max_num = 0
+    max_abs = 0
     
     for num in arr:
         num_set.add(num)
-        # Check if the opposite sign exists and update max_num
-        if -num in num_set and num != 0 and abs(num) > abs(max_num):
-            max_num = num
+        # Check if the opposite sign exists and update max_abs
+        if -num in num_set:
+            abs_num = abs(num)
+            if abs_num > max_abs:
+                max_abs = abs_num
                 
-    return abs(max_num) if max_num != 0 else -1
+    return max_abs if max_abs > 0 else -1
 
 # Example usage:
 arr = [3, -1, -4, -90, 90, 2, 4, -3]
